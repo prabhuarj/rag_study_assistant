@@ -125,49 +125,8 @@ Citations:
 Do NOT include JSON, IDs, metadata, or tool call info. Only give plain text output exactly in this format.
 """)
 
-
-
-
-
-
-#====================================
-#3️⃣ Structured Output Parsing
-#====================================
-# from langchain_core.output_parsers import PydanticOutputParser
-# from pydantic import BaseModel
-
-# class StudyResponse(BaseModel):
-#     answer: Union[str, Dict[str, str]]
-#     study_plan: List[str]
-#     practice_problems: List[Dict[str, str]]
-
-# parser = PydanticOutputParser(pydantic_object=StudyResponse)
-
-# from pydantic import BaseModel
-# from typing import List
-
-# class Answer(BaseModel):
-#     text: str
-#     summary: str
-
-# class StudyStep(BaseModel):
-#     step: str
-#     description: str
-
-# class PracticeProblem(BaseModel):
-#     problem: str
-#     solution: str
-
-# class StudyResponse(BaseModel):
-#     answer: Answer
-#     study_plan: List[StudyStep]
-#     practice_problems: List[PracticeProblem]
-
-# from langchain_core.output_parsers import PydanticOutputParser
-# parser = PydanticOutputParser(pydantic_object=StudyResponse)
-
 # ====================================
-# 4️⃣ Build RAG Chain
+# 3️⃣ Build RAG Chain
 # ====================================
 from langchain_core.runnables import RunnablePassthrough
 from langchain_core.output_parsers import StrOutputParser
@@ -179,7 +138,7 @@ rag_chain = (
 )
 
 # ====================================
-# 5️⃣ Define RAG Tool Function
+# 4️⃣ Define RAG Tool Function
 # ====================================
 def rag_tool(question: str):
     """Fetch relevant context and generate an answer using the RAG pipeline."""

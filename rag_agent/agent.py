@@ -1,39 +1,13 @@
-# # ==========================================
-# # 🤖 Google ADK Agent for RAG Study Assistant
-# # ==========================================
-# from google.genai.agents import Agent
-# from google.genai.tools import FunctionTool
-# from rag_pipeline import rag_tool
-# import json
-
-# # Register RAG Tool
-# rag_tool_adk = FunctionTool(
-#     func=rag_tool,
-#     name="RAGStudyHelper",
-#     description="Answer student questions using uploaded study materials."
-# )
-
-# # Define Agent
-# study_agent = Agent(
-#     name = "rag_agent",
-#     model="gemini-1.5-flash",
-#     tools=[rag_tool_adk],
-#     instructions=(
-#         "You are a friendly and knowledgeable study assistant. "
-#         "Use RAGStudyHelper to provide accurate, context-based answers "
-#         "from the uploaded course materials."
-#     )
-# )
 
 # ==========================================
-# 🤖 Google ADK Agent for RAG Study Assistant
+#  Google ADK Agent for RAG Study Assistant
 # ==========================================
 
 from google.adk.agents import Agent
 from google.adk.tools import FunctionTool
 
 
-from rag_pipeline import rag_tool  # your custom RAG pipeline function
+from rag_pipeline import rag_tool  
 
 # Register the RAG Tool
 rag_tool_adk = FunctionTool(rag_tool)
@@ -90,7 +64,7 @@ List the retrieved document references as:
 [source:<file_path>::<chunk_index>] Short note about what was used from that source.
 [source:filename.pdf::page]
 
-⚠️ Important:
+ Important:
 - Do NOT output JSON or metadata.
 - Do NOT include tool IDs or “rag_tool_response”.
 - Respond **only** in plain text following this format.
